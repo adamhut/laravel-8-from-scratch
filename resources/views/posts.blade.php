@@ -5,6 +5,13 @@
 <link rel="stylesheet" href="/app.css">
 
 <body>
+
+    @foreach($posts as $post)
+        <article>
+          {!!$post!!}
+        </article>
+
+    @endforeach
     <article>
         <h1>
             <a href="/post/my-first-post">my first post</a>
