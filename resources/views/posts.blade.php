@@ -7,17 +7,19 @@
 <body>
 
     @foreach($posts as $post)
-        <article>
-          <h1>
-              <a href="/post/{{ $post->slug }}">{{ $post->title }}</a>
+        <article class="{{$loop->even ? 'mb-6' :''}}">
+            <h1>
+                <a href="/post/{{ $post->slug }}">
+                {{ $post->title }}
+                </a>
             </h1>
-          <div>
-              {{ $post->excerpt }}..。
-          </div>
+            <div>
+                {{ $post->excerpt }}..。
+            </div>
         </article>
 
     @endforeach
-    <article>
+    {{-- <article>
         <h1>
             <a href="/post/my-first-post">my first post</a>
         </h1>
@@ -43,5 +45,5 @@
             possimus earum vitae placeat sequi suscipit adipisci atque incidunt animi deserunt, repudiandae illum pariatur
             facere?
         </p>
-    </article>
+    </article> --}}
 </body>
