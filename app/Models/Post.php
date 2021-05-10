@@ -6,7 +6,26 @@ use Illuminate\Support\Facades\Cache;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 
 class Post{
+
     
+    public $title;
+    public $excerpt;
+    public $date;
+    public $body;
+    
+    
+
+    public $slug;
+
+    public function __construct($title,$excerpt,$date,$body, $slug)
+    {
+        $this->title  = $title;
+        $this->excerpt  = $excerpt;
+        $this->date  = $date;
+        $this->body  = $body;
+        $this->slug = $slug;
+    }
+
     public static function find($slug)
     {
         
@@ -29,7 +48,9 @@ class Post{
         return array_map(function($file){
             return $file->getContents();
         },$files);
-
-
     }
+
+
+
+
 }
