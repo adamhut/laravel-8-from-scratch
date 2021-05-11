@@ -30,19 +30,29 @@ class Post{
     public static function find($slug)
     {
         //of all the blog posts, find the one with a slug that matches the one taht was request 
-        $posts = static::all(); 
+        $posts = static::all();
+        $post =$posts->firstWhere('slug', $slug);
+       
+        return $post;
 
-        return $posts->firstWhere('slug',$slug);
+        // $path = resource_path("posts/{$slug}.html");
+        // if (!file_exists($path)) {
+        //     throw new ModelNotFoundException();
+        // }
+        // return  Cache::remember("posts.{$slug}", now()->addMinutes(5), function () use ($path) {
+        //     return file_get_contents($path);
+        // });
+    }
 
-        $path = resource_path("posts/{$slug}.html");
 
-        if (!file_exists($path)) {
+    public function findOrFail($slug)
+    {
+        $post = static::find($slug);
+        if (!$post) {
             throw new ModelNotFoundException();
         }
 
-        return  Cache::remember("posts.{$slug}", now()->addMinutes(5), function () use ($path) {
-            return file_get_contents($path);
-        });
+        return $post ;
     }
 
     public static function all()
