@@ -1,10 +1,12 @@
-<!doctype html>
+@extends('layout')
 
-<title> My Blog</title>
+@section('banner')
+    My Blog
+@endsection
 
-<link rel="stylesheet" href="/app.css">
 
-<body>
+@section('content')
+    
 
     @foreach($posts as $post)
         <article class="{{$loop->even ? 'mb-6' :''}}">
@@ -46,4 +48,4 @@
             facere?
         </p>
     </article> --}}
-</body>
+@endsection
