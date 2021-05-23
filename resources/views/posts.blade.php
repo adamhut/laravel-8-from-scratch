@@ -24,7 +24,7 @@
 @endsection --}}
 
 <x-layout>
-    <x-slot name="header">
+<x-slot name="header">
         My Blog in Component
     </x-slot>
     <x-slot name="content">
@@ -36,7 +36,7 @@
                 </a>
             </h1>
             <p>
-                <a href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
+                By <a href="#">{{$post->user->name}}</a> in<a href="/categories/{{ $post->category->slug }}">{{$post->category->name}}</a>
             </p>
             <div>
                 {{ $post->excerpt }}..。

@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Post;
+use App\Models\User;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +16,22 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Post::truncate();
+        Category::truncate();
+        User::truncate();
+
+
+        $categories = Category::factory(4)->create();
+        $users =  User::factory(10)->create();
+
+        $users->each(function($user) use ($categories){
+            $categories->each(function($category) use ($user){
+                Post::factory()->create([
+                    'user_id'       =>  $user->id,
+                    'category_id'   =>  $category->id,
+                ]);
+            });
+        });
+
     }
 }

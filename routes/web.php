@@ -2,6 +2,7 @@
 
 use App\Models\Post;
 use App\Models\Category;
+// use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
@@ -19,7 +20,6 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 */
 
 Route::get('/', function () {
-     $posts = Post::all();
     // foreach($files as $file)
     // {
     //     $document = YamlFrontMatter::parseFile(
@@ -34,10 +34,16 @@ Route::get('/', function () {
     //         $document->slug
     //     );
     // }
-    
-    // ddd($posts);
 
-    return view('posts',['posts'=>$posts]);
+    // ddd($posts);
+    Illuminate\Support\Facades\DB::listen(function($query){
+        logger($query->sql,$query->bindings);
+    });          
+    $posts = Post::with('category')->get();
+
+    return view('posts',[
+        'posts'=>$posts
+    ]);
 });
 
 Route::get('/post/{post:slug}',function(Post $post){
