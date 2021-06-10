@@ -20,8 +20,8 @@ class DatabaseSeeder extends Seeder
         Category::truncate();
         User::truncate();
 
-
         $categories = Category::factory(4)->create();
+        
         $users =  User::factory(10)->create();
 
         $users->each(function($user) use ($categories){

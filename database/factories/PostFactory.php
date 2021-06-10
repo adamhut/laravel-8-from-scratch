@@ -24,16 +24,15 @@ class PostFactory extends Factory
      */
     public function definition()
     {
-        $title = $this->faker->words('5',true);
+        $title = $this->faker->sentence;
         return [
             //
-            'category_id' => Category::factory(),
-            'user_id'   => User::factory(),
-            'slug' => Str::slug($title),
-            'title' => $title,
-            'excerpt'=>  $this->faker->words('5',true),
-            'body' => $this->faker->paragraphs(3,true),
-
+            'title'         => $title,
+            'category_id'   => Category::factory(),
+            'user_id'       => User::factory(),
+            'slug'          => Str::slug($title),
+            'excerpt'       => $this->faker->sentence,
+            'body'          => $this->faker->paragraphs(3,true),
         ];
     }
 }
