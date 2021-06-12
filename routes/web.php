@@ -44,14 +44,16 @@ Route::get('/', function () {
         ->get();
 
     return view('posts',[
-        'posts'=>$posts
+        'posts'=>$posts,
+        'categories' => Category::all(),
+
     ]);
 });
 
 Route::get('/posts/{post:slug}',function(Post $post){
     //Find a post by its slug  and pass it to a view call "post"
     // $post = Post::find($post);
-    
+
     return view('post',[
         'post' => $post,
     ]);
@@ -61,12 +63,19 @@ Route::get('/posts/{post:slug}',function(Post $post){
 
 Route::get('categories/{category:slug}',function(Category $category){
     
-    return view('posts',['posts' => $category->posts->load(['author','category'])]);
+    return view('posts',[
+        'posts' => $category->posts->load(['author','category']),
+        'currentCategory' => $category,
+        'categories' => Category::all(),
+    ]);
 });
 
 Route::get('authors/{author:username}', function (User $author) {
 
     $posts = $author->posts->load(['author', 'category']);
 
-    return view('posts', ['posts' => $posts]);
+    return view('posts', [
+        'posts' => $posts,
+        'categories' => Category::all(),
+    ]);
 });

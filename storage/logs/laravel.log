@@ -7558,3 +7558,126 @@ Est nam dicta autem nobis. Vel vero quis eos corrupti corrupti placeat. Quo dign
 #9 C:\\xampp\\htdocs\\laravel-8-from-scratch\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
 #10 {main}
 "} 
+[2021-06-12 22:01:04] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:01:04] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:01:05] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:25:01] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:25:01] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:25:01] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:25:01] local.DEBUG: select * from `categories`  
+[2021-06-12 22:26:38] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:26:38] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:26:38] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:26:38] local.DEBUG: select * from `categories`  
+[2021-06-12 22:32:49] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:32:49] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:32:49] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:32:49] local.DEBUG: select * from `categories`  
+[2021-06-12 22:34:45] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:34:45] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:34:45] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:34:45] local.DEBUG: select * from `categories`  
+[2021-06-12 22:50:11] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:50:11] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:50:11] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:50:11] local.DEBUG: select * from `categories`  
+[2021-06-12 22:50:38] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:50:38] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:50:38] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:50:38] local.DEBUG: select * from `categories`  
+[2021-06-12 22:51:34] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:51:34] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:51:34] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:51:34] local.DEBUG: select * from `categories`  
+[2021-06-12 22:52:22] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:52:22] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:52:22] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:52:22] local.DEBUG: select * from `categories`  
+[2021-06-12 22:53:49] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:53:50] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:53:50] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:53:50] local.DEBUG: select * from `categories`  
+[2021-06-12 22:54:45] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:54:45] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:54:45] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:54:45] local.DEBUG: select * from `categories`  
+[2021-06-12 22:55:00] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:55:00] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:55:00] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:55:00] local.DEBUG: select * from `categories`  
+[2021-06-12 22:55:22] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:55:22] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:55:22] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:55:22] local.DEBUG: select * from `categories`  
+[2021-06-12 22:55:49] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:55:49] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:55:49] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:55:49] local.DEBUG: select * from `categories`  
+[2021-06-12 22:56:14] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:56:14] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:56:14] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:56:14] local.DEBUG: select * from `categories`  
+[2021-06-12 22:57:14] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:57:14] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:57:14] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:57:14] local.DEBUG: select * from `categories`  
+[2021-06-12 22:57:56] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 22:57:56] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 22:57:56] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 22:57:56] local.DEBUG: select * from `categories`  
+[2021-06-12 23:00:14] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:00:14] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:00:14] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:00:14] local.DEBUG: select * from `categories`  
+[2021-06-12 23:02:51] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:02:51] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:02:51] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:02:51] local.DEBUG: select * from `categories`  
+[2021-06-12 23:05:21] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:05:22] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:05:22] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:05:22] local.DEBUG: select * from `categories`  
+[2021-06-12 23:05:35] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:05:35] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:05:35] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:05:35] local.DEBUG: select * from `categories`  
+[2021-06-12 23:05:52] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:05:52] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:05:52] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:05:52] local.DEBUG: select * from `categories`  
+[2021-06-12 23:06:31] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:06:31] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:06:31] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:06:31] local.DEBUG: select * from `categories`  
+[2021-06-12 23:06:36] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:06:36] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:06:36] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:06:36] local.DEBUG: select * from `categories`  
+[2021-06-12 23:06:38] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:06:38] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:06:38] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:06:38] local.DEBUG: select * from `categories`  
+[2021-06-12 23:07:07] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:07:07] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:07:07] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:07:07] local.DEBUG: select * from `categories`  
+[2021-06-12 23:07:50] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:07:50] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:07:50] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:07:50] local.DEBUG: select * from `categories`  
+[2021-06-12 23:08:33] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:08:33] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:08:33] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:08:33] local.DEBUG: select * from `categories`  
+[2021-06-12 23:10:23] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:10:23] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:10:23] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:10:23] local.DEBUG: select * from `categories`  
+[2021-06-12 23:15:41] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:15:41] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:15:41] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:15:41] local.DEBUG: select * from `categories`  
+[2021-06-12 23:18:02] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 23:18:02] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 23:18:02] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 23:18:02] local.DEBUG: select * from `categories`  
