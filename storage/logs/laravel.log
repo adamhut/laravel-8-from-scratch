@@ -7538,3 +7538,23 @@ Est nam dicta autem nobis. Vel vero quis eos corrupti corrupti placeat. Quo dign
 [2021-06-11 23:27:15] local.DEBUG: select * from `posts` order by `created_at` desc  
 [2021-06-11 23:27:15] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
 [2021-06-11 23:27:15] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 21:23:07] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 21:23:07] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 21:23:07] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 21:33:53] local.DEBUG: select * from `posts` order by `created_at` desc  
+[2021-06-12 21:33:53] local.DEBUG: select * from `categories` where `categories`.`id` in (1, 2, 3, 4)  
+[2021-06-12 21:33:53] local.DEBUG: select * from `users` where `users`.`id` in (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)  
+[2021-06-12 21:42:25] local.ERROR: file_put_contents(): write of 5600 bytes failed with errno=13 Permission denied {"exception":"[object] (ErrorException(code: 0): file_put_contents(): write of 5600 bytes failed with errno=13 Permission denied at C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Storage\\FileStorage.php:273)
+[stacktrace]
+#0 [internal function]: Illuminate\\Foundation\\Bootstrap\\HandleExceptions->handleError(8, 'file_put_conten...', 'C:\\\\xampp\\\\htdocs...', 273, Array)
+#1 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Storage\\FileStorage.php(273): file_put_contents('C:\\\\xampp\\\\htdocs...', '1623367150-4708...')
+#2 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Storage\\FileStorage.php(117): Clockwork\\Storage\\FileStorage->trimIndex()
+#3 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Storage\\FileStorage.php(92): Clockwork\\Storage\\FileStorage->cleanup()
+#4 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Clockwork.php(133): Clockwork\\Storage\\FileStorage->store(Object(Clockwork\\Request\\Request))
+#5 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Support\\Laravel\\ClockworkSupport.php(429): Clockwork\\Clockwork->storeRequest()
+#6 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\itsgoingd\\clockwork\\Clockwork\\Support\\Laravel\\ClockworkMiddleware.php(36): Clockwork\\Support\\Laravel\\ClockworkSupport->recordRequest()
+#7 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(208): Clockwork\\Support\\Laravel\\ClockworkMiddleware->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#8 C:\\xampp\\htdocs\\laravel-8-from-scratch\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Http\\Kernel.php(179): Illuminate\\Foundation\\Http\\Kernel->terminateMiddleware(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#9 C:\\xampp\\htdocs\\laravel-8-from-scratch\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->terminate(Object(Illuminate\\Http\\Request), Object(Illuminate\\Http\\Response))
+#10 {main}
+"} 

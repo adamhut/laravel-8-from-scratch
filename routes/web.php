@@ -48,10 +48,10 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/post/{post:slug}',function(Post $post){
+Route::get('/posts/{post:slug}',function(Post $post){
     //Find a post by its slug  and pass it to a view call "post"
     // $post = Post::find($post);
-
+    
     return view('post',[
         'post' => $post,
     ]);
