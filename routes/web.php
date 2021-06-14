@@ -7,7 +7,10 @@ use App\Models\Category;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\AuthorController;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,62 +23,70 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 |
 */
 
-Route::get('/', function () {
-    // foreach($files as $file)
-    // {
-    //     $document = YamlFrontMatter::parseFile(
-    //         $file
-    //     );
+// Route::get('/', function () {
+// foreach($files as $file)
+// {
+//     $document = YamlFrontMatter::parseFile(
+//         $file
+//     );
 
-    //     $posts[] = new Post(
-    //         $document->title, 
-    //         $document->excerpt,
-    //         $document->date,
-    //         $document->body(),
-    //         $document->slug
-    //     );
-    // }
-    // ddd($posts);
-    Illuminate\Support\Facades\DB::listen(function($query){
-        logger($query->sql,$query->bindings);
-    });          
-    $posts = Post::with(['category','author'])
-        ->latest()
-        ->get();
+//     $posts[] = new Post(
+//         $document->title, 
+//         $document->excerpt,
+//         $document->date,
+//         $document->body(),
+//         $document->slug
+//     );
+// }
+// ddd($posts);
 
-    return view('posts',[
-        'posts'=>$posts,
-        'categories' => Category::all(),
+// Illuminate\Support\Facades\DB::listen(function($query){
+//     logger($query->sql,$query->bindings);
+// });          
 
-    ]);
-})->name('home');
+//     $posts = Post::with(['category','author'])
+//         ->latest()
+//         ->get();
 
-Route::get('/posts/{post:slug}',function(Post $post){
-    //Find a post by its slug  and pass it to a view call "post"
-    // $post = Post::find($post);
+//     return view('posts',[
+//         'posts'=>$posts,
+//         'categories' => Category::all(),
 
-    return view('post',[
-        'post' => $post,
-    ]);
-});
+//     ]);
+// })->name('home');
+
+// Route::get('/posts/{post:slug}',function(Post $post){
+//     //Find a post by its slug  and pass it to a view call "post"
+//     // $post = Post::find($post);
+
+//     return view('post',[
+//         'post' => $post,
+//     ]);
+// });
 
 
+// Route::get('categories/{category:slug}',function(Category $category){
+//     return view('posts',[
+//         'posts' => $category->posts->load(['author','category']),
+//         'currentCategory' => $category,
+//         'categories' => Category::all(),
+//     ]);
+// })->name('category');
 
-Route::get('categories/{category:slug}',function(Category $category){
-    
-    return view('posts',[
-        'posts' => $category->posts->load(['author','category']),
-        'currentCategory' => $category,
-        'categories' => Category::all(),
-    ]);
-})->name('category');
+// Route::get('authors/{author:username}', function (User $author) {
+//     $posts = $author->posts->load(['author', 'category']);
+//     return view('posts', [
+//         'posts' => $posts,
+//         'categories' => Category::all(),
+//     ]);
+// });
 
-Route::get('authors/{author:username}', function (User $author) {
 
-    $posts = $author->posts->load(['author', 'category']);
+Route::get('/', [PostController::class,'index'])->name('home');
 
-    return view('posts', [
-        'posts' => $posts,
-        'categories' => Category::all(),
-    ]);
-});
+Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('post.show');
+
+Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/authors/{user:username}', [AuthorController::class, 'show'])->name('author.show');
+
