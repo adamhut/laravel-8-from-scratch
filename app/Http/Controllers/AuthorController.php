@@ -15,7 +15,7 @@ class AuthorController extends Controller
 
         return view('posts', [
             'posts' => $posts,
-            'categories' => Category::all(),
+            // 'categories' => Category::all(),
         ]);
     }
 }
