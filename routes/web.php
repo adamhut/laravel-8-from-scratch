@@ -87,5 +87,5 @@ Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('post.show
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
-Route::get('/authors/{user:username}', [AuthorController::class, 'show'])->name('author.show');
+Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('author.show');
 

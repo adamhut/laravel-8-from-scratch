@@ -41,6 +41,11 @@ class Post extends Model
                 $q->whereHas('category', function($innerQuery) use ($category){
                     $innerQuery->where('slug',$category);
                 });
+            })
+            ->when( $filters['author'] ?? false ,function($q,$author) {
+                $q->whereHas('author', function ($innerQuery) use ($author) {
+                    $innerQuery->where('username', $author);
+                });
             });
           
     }

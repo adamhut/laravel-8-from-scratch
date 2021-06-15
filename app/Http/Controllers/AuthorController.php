@@ -11,9 +11,10 @@ class AuthorController extends Controller
 
     public function show(User $author)
     {
+        // dd($author->posts);
         $posts = $author->posts->load(['author', 'category']);
 
-        return view('posts', [
+        return view('posts.index', [
             'posts' => $posts,
             // 'categories' => Category::all(),
         ]);
