@@ -52,7 +52,8 @@
         @if($posts->count()!=0)
         
             <x-post-grid :posts="$posts"></x-post-grid>
-        
+
+            {{ $posts->links() }}
         @else
             <p class="text-center">No Post yet , please check back later</p>    
         @endif
