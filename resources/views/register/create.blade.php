@@ -10,9 +10,16 @@
                     <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Name
                     </label>
-                    <input type="text" class="border broder-gray-400 p-2 w-full" name="name" id="name" required>
+                    <input 
+                        type="text" 
+                        name="name" 
+                        id="name" 
+                        class="border broder-gray-400 p-2 w-full" 
+                        required 
+                        value="{{ old('name') }}"
+                    >
                     @error('name')
-                    <p class="texte-red-500 text-xs mt-2">{{$message}}</p>
+                        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="mb-6">
@@ -25,9 +32,10 @@
                         name="username"
                         id="username"
                         required
+                        value="{{ old('username') }}"
                     >
                     @error('username')
-                        <p class="texte-red-500 text-xs mt-2">{{$message}}</p>
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
                 
@@ -35,16 +43,31 @@
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Email
                     </label>
-                    <input type="email" class="border broder-gray-400 p-2 w-full" name="email" id="email" required>
+                    <input type="email" 
+                        class="border broder-gray-400 p-2 w-full" 
+                        name="email" 
+                        id="email" 
+                        required
+                        value="{{ old('email') }}"
+                    >
                     @error('email')
-                        <p class="texte-red-500 text-xs mt-2">{{$message}}</p>
+                        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
                     @enderror
                 </div>
                 <div class="mb-6">
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Password
                     </label>
-                    <input type="password" class="border broder-gray-400 p-2 w-full" name="password" id="password" required>
+                    <input 
+                        type="password" 
+                        class="border broder-gray-400 p-2 w-full" 
+                        name="password" 
+                        id="password" 
+                        required
+                    >
+                    @error('password')
+                        <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                    @enderror
                 </div>
                 <div class="mb-6 text-right">
                     <button class="bg-blue-400 text-white rounded py-2 px-4 hover:bg-blue-500"
@@ -52,6 +75,14 @@
                         Submit
                     </button>
                 </div>
+
+                @if($errors->any())
+                    <ul>
+                        @foreach($errors->all() as $error)
+                            <li class="text-red-500 text-xs">{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                @endif
             </form> 
         </main>
     </section>
