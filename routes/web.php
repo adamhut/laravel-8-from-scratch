@@ -11,6 +11,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthorController;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\RegisterController;
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +90,5 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->
 
 Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('author.show');
 
+Route::get('register',[RegisterController::class, 'create'])->name('register.create');
+Route::post('register', [RegisterController::class, 'store'])->name('register.store');
