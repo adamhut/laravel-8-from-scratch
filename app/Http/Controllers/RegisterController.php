@@ -22,7 +22,9 @@ class RegisterController extends Controller
             'email'     => ['required','email','max:255'],
             'password'  => ['required','max:255','min:7'],
         ]);
-        $attributes['password'] = bcrypt($attributes['password']);
+
+        //move to Mutators
+        // $attributes['password'] = bcrypt($attributes['password']);
 
         User::create($attributes);
 
