@@ -72,11 +72,13 @@
 
                     <div class="space-y-4 lg:text-lg leading-loose">
                         {!! $post->body !!}
-
-                     
-                    </div>
+                    </div>                    
                 </div>
-            </article>
+                <section class="mt-10 col-span-8 col-start-5 space-y-6">
+                    <x-post-comment></x-post-comment>
+                    <x-post-comment></x-post-comment>
+                </section>
+            </article>            
         </main>
     </section>
 </x-layout>
