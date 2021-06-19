@@ -12,6 +12,7 @@ use App\Http\Controllers\AuthorController;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
+use App\Http\Controllers\SessionsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -90,5 +91,12 @@ Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->
 
 Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('author.show');
 
-Route::get('register',[RegisterController::class, 'create'])->name('register.create');
-Route::post('register', [RegisterController::class, 'store'])->name('register.store');
+//TODO: make it a group
+Route::get('register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');
+Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
+
+
+Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
+Route::post('login', [SessionsController::class, 'store'])->name('login.store')->middleware('guest');
+
+Route::post('logout', [SessionsController::class,'destroy'])->name('logout')->middleware('auth');
