@@ -80,14 +80,19 @@
                 <section class="mt-10 col-span-8 col-start-5 space-y-6">
                     @auth
                     <x-panel>
-                        <form action="/" method="POST">
+                        <form action="{{route('post-comments.store',$post)}}" method="POST">
                             @csrf
                             <header class="flex items-center">
                                 <img src="https://i.pravatar.cc/60?u={{ auth()->user()->id }}" alt="dummy avatart" style="width:40px" class="rounded-xl">
                                 <h2 class="ml-3">Want to participate!</h2>
                             </header>
                             <div class="mt-6">
-                                <textarea name="body"cols="30" rows="5" class="w-full text-sm focus:outline-none focus:ring" placeholder="Quick! think of something to say!"></textarea>
+                                <textarea
+                                    name="body"
+                                    cols="30"
+                                    rows="5"
+                                    class="w-full text-sm focus:outline-none focus:ring"
+                                    placeholder="Quick! think of something to say!"></textarea>
                                 <div class="flex justify-end border-t border-gray-200 pt-6 mt-8">
                                     <button
                                         type="submit"
@@ -97,6 +102,10 @@
                             </div>
                         </form>
                     </x-panel>
+                    @else
+                        <p class="font-semibold">
+                            <a href="/register" class="hover:underline">Register </a> or <a href="/login" class="hover:underline">Log in </a>to leave a comment
+                        </p>
                     @endauth
                     @foreach($post->comments as $comment)
                         <x-post-comment :comment="$comment"></x-post-comment>

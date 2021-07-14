@@ -13,6 +13,7 @@ use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\PostCommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -91,6 +92,8 @@ Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('post.show
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('author.show');
+
+Route::post('/posts/{post:slug}/comments',[PostCommentsController::class,'store'])->name('post-comments.store');
 
 //TODO: make it a group
 Route::get('register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');

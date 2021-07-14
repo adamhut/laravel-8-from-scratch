@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class PostController extends Controller
 {
-    
+
     public function index()
     {
         return view('posts.index', [
@@ -24,7 +24,8 @@ class PostController extends Controller
 
     public function show(Post $post)
     {
-         return view('posts.show',[
+        // add a comment to the given post.
+        return view('posts.show',[
             'post' => $post,
         ]);
     }
