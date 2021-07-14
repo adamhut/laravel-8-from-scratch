@@ -86,7 +86,11 @@ use App\Http\Controllers\PostCommentsController;
 // auth()->loginUsingId(1);
 
 
-Route::get('ping',function(){
+Route::post('newsletter',function(){
+
+    request()->validate([
+        'email' =>['required','email']
+    ]);
 
     $mailchimp = new \MailchimpMarketing\ApiClient();
 
@@ -98,13 +102,24 @@ Route::get('ping',function(){
     // $response = $mailchimp->ping->get();
     // $response = $mailchimp->lists->getAllLists();
     // $response = $mailchimp->lists->getList('4d6c1c5401');
-     $response = $mailchimp->lists->getListMembersInfo("4d6c1c5401");
+    //  $response = $mailchimp->lists->getListMembersInfo("4d6c1c5401");
 
-    // $response = $mailchimp->lists->addListMember("4d6c1c5401", [
-    //     "email_address" => "ahuang@bacera.com",
-    //     "status" => "subscribed",
-    // ]);
-    ddd($response);
+    try{
+        $response = $mailchimp->lists->addListMember("4d6c1c5401", [
+            "email_address" => request('email'),
+            "status" => "subscribed",
+        ]);
+
+        return redirect('/')->with('success','Your are now signed up for our newsletter');
+
+    }catch(\Exception $e){
+        \Illuminate\Validation\ValidationException::withMessages([
+            'email'=>'This email could not be add to the newsletter list',
+        ])
+    }
+
+
+    // ddd($response);
 
 });
 
