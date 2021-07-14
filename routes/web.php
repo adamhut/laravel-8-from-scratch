@@ -85,6 +85,29 @@ use App\Http\Controllers\PostCommentsController;
 
 // auth()->loginUsingId(1);
 
+
+Route::get('ping',function(){
+
+    $mailchimp = new \MailchimpMarketing\ApiClient();
+
+    $mailchimp->setConfig([
+        'apiKey' => config('services.mailchimp.key'),
+        'server' => 'us6'
+    ]);
+
+    // $response = $mailchimp->ping->get();
+    // $response = $mailchimp->lists->getAllLists();
+    // $response = $mailchimp->lists->getList('4d6c1c5401');
+     $response = $mailchimp->lists->getListMembersInfo("4d6c1c5401");
+
+    // $response = $mailchimp->lists->addListMember("4d6c1c5401", [
+    //     "email_address" => "ahuang@bacera.com",
+    //     "status" => "subscribed",
+    // ]);
+    ddd($response);
+
+});
+
 Route::get('/', [PostController::class,'index'])->name('home');
 
 Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('post.show');
