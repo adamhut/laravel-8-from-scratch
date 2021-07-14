@@ -33,7 +33,7 @@ use App\Http\Controllers\SessionsController;
 //     );
 
 //     $posts[] = new Post(
-//         $document->title, 
+//         $document->title,
 //         $document->excerpt,
 //         $document->date,
 //         $document->body(),
@@ -44,7 +44,7 @@ use App\Http\Controllers\SessionsController;
 
 // Illuminate\Support\Facades\DB::listen(function($query){
 //     logger($query->sql,$query->bindings);
-// });          
+// });
 
 //     $posts = Post::with(['category','author'])
 //         ->latest()
@@ -82,6 +82,7 @@ use App\Http\Controllers\SessionsController;
 //     ]);
 // });
 
+// auth()->loginUsingId(1);
 
 Route::get('/', [PostController::class,'index'])->name('home');
 
@@ -94,7 +95,6 @@ Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->nam
 //TODO: make it a group
 Route::get('register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');
 Route::post('register', [RegisterController::class, 'store'])->name('register.store')->middleware('guest');
-
 
 Route::get('login', [SessionsController::class, 'create'])->name('login')->middleware('guest');
 Route::post('login', [SessionsController::class, 'store'])->name('login.store')->middleware('guest');

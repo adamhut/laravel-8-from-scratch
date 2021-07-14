@@ -72,14 +72,37 @@
 
                     <div class="space-y-4 lg:text-lg leading-loose">
                         {!! $post->body !!}
-                    </div>                    
+                    </div>
                 </div>
+
+
+
                 <section class="mt-10 col-span-8 col-start-5 space-y-6">
+                    @auth
+                    <x-panel>
+                        <form action="/" method="POST">
+                            @csrf
+                            <header class="flex items-center">
+                                <img src="https://i.pravatar.cc/60?u={{ auth()->user()->id }}" alt="dummy avatart" style="width:40px" class="rounded-xl">
+                                <h2 class="ml-3">Want to participate!</h2>
+                            </header>
+                            <div class="mt-6">
+                                <textarea name="body"cols="30" rows="5" class="w-full text-sm focus:outline-none focus:ring" placeholder="Quick! think of something to say!"></textarea>
+                                <div class="flex justify-end border-t border-gray-200 pt-6 mt-8">
+                                    <button
+                                        type="submit"
+                                        class="bg-blue-500 text-white uppercase font-semibold text-xs py-2 px-10 rounded-2xl hover:bg-blue-600"
+                                    >Sumbit</button>
+                                </div>
+                            </div>
+                        </form>
+                    </x-panel>
+                    @endauth
                     @foreach($post->comments as $comment)
                         <x-post-comment :comment="$comment"></x-post-comment>
                     @endforeach
                 </section>
-            </article>            
+            </article>
         </main>
     </section>
 </x-layout>
