@@ -6,13 +6,18 @@
 >
     <div class="py-6 px-5">
         <div>
-            <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl">
+            {{-- <img src="/images/illustration-3.png" alt="Blog Post illustration" class="rounded-xl"> --}}
+            @if ($post->thumbnail)
+                <img src="{{ asset('storage/' . $post->thumbnail) }}" alt="" class="rounded-xl">
+            @else
+                <img src="/images/illustration-1.png" alt="" class="rounded-xl">
+            @endif
         </div>
 
         <div class="mt-8 flex flex-col justify-between">
             <header>
                 <div class="space-x-2">
-                    
+
                     <x-category-button :category="$post->category"></x-category-button>
 
                     {{-- <a href="#"
@@ -34,9 +39,9 @@
             </header>
 
             <div class="text-sm mt-4 space-y-2">
-               
+
                    {!! $post->excerpt !!}
-                
+
                 {{-- <p class="mt-4">
                     Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                     fugiat nulla pariatur.
@@ -48,7 +53,7 @@
                     <img src="/images/lary-avatar.svg" alt="Lary avatar">
                     <div class="ml-3">
                         <h5 class="font-bold">
-                            <a href="/?author={{ $post->author->username }}">   {{ $post->author->name }} </a> 
+                            <a href="/?author={{ $post->author->username }}">   {{ $post->author->name }} </a>
                         </h5>
                         {{-- <h6>Mascot at Laracasts</h6> --}}
                     </div>

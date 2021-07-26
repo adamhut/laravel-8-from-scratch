@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Post;
 use App\Models\Category;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
@@ -44,14 +45,15 @@ class PostController extends Controller
 
     public function store()
     {
-        ddd(request()->all());
-
         $attributies = request()->validate([
-            'title'     =>['required'],
+            'title'     => ['required'],
+            'thumbnail' => ['required','image'],
             'excerpt'   => ['required'],
             'body'      => ['required'],
             'category_id' => ['required',Rule::exists('categories','id')],
         ]);
+
+        $attributies['thumbnail'] = request()->hasFile('thumbnail') ? request()->file('thumbnail')->store('thumbnail') : null;
 
         $attributies['user_id'] = auth()->user()->id;
 
@@ -60,7 +62,7 @@ class PostController extends Controller
         Post::create($attributies);
 
 
-        return redirect('/')
+        return redirect('/');
 
 
     }
