@@ -11,6 +11,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthorController;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
 use App\Http\Controllers\PostCommentsController;
@@ -83,55 +84,21 @@ use App\Http\Controllers\PostCommentsController;
 //     ]);
 // });
 
-// auth()->loginUsingId(1);
+ auth()->loginUsingId(1);
 
 
-Route::post('newsletter',function(){
-
-    request()->validate([
-        'email' =>['required','email']
-    ]);
-
-    $mailchimp = new \MailchimpMarketing\ApiClient();
-
-    $mailchimp->setConfig([
-        'apiKey' => config('services.mailchimp.key'),
-        'server' => 'us6'
-    ]);
-
-    // $response = $mailchimp->ping->get();
-    // $response = $mailchimp->lists->getAllLists();
-    // $response = $mailchimp->lists->getList('4d6c1c5401');
-    //  $response = $mailchimp->lists->getListMembersInfo("4d6c1c5401");
-
-    try{
-        $response = $mailchimp->lists->addListMember("4d6c1c5401", [
-            "email_address" => request('email'),
-            "status" => "subscribed",
-        ]);
-
-        return redirect('/')->with('success','Your are now signed up for our newsletter');
-
-    }catch(\Exception $e){
-        \Illuminate\Validation\ValidationException::withMessages([
-            'email'=>'This email could not be add to the newsletter list',
-        ])
-    }
-
-
-    // ddd($response);
-
-});
+Route::post('newsletter',NewsletterController::class);
 
 Route::get('/', [PostController::class,'index'])->name('home');
 
 Route::get('/posts/{post:slug}',[PostController::class,'show'])->name('post.show');
+Route::post('/posts/{post:slug}/comments',[PostCommentsController::class,'store'])->name('post-comments.store');
+
 
 Route::get('/categories/{category:slug}', [CategoryController::class, 'show'])->name('category.show');
 
 Route::get('/authors/{author:username}', [AuthorController::class, 'show'])->name('author.show');
 
-Route::post('/posts/{post:slug}/comments',[PostCommentsController::class,'store'])->name('post-comments.store');
 
 //TODO: make it a group
 Route::get('register',[RegisterController::class, 'create'])->name('register.create')->middleware('guest');
@@ -141,3 +108,7 @@ Route::get('login', [SessionsController::class, 'create'])->name('login')->middl
 Route::post('login', [SessionsController::class, 'store'])->name('login.store')->middleware('guest');
 
 Route::post('logout', [SessionsController::class,'destroy'])->name('logout')->middleware('auth');
+
+
+Route::get('admin/posts/create', [PostController::class, 'create'])->name('admin.post.create')->middleware('admin-only');
+Route::post('admin/posts',[PostController::class,'store'])->name('admin.post.store')->middleware('admin-only');

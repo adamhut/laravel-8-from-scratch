@@ -26,7 +26,7 @@ class SessionsController extends Controller
         // based on th eprovided credentials
 
         if(!auth()->attempt($attributes)){
-            
+
             ValidationException::withMessages([
                 'email' => 'Your provided credentials could not be verified'
             ]);

@@ -10,12 +10,12 @@
                     <label for="name" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Name
                     </label>
-                    <input 
-                        type="text" 
-                        name="name" 
-                        id="name" 
-                        class="border broder-gray-400 p-2 w-full" 
-                        required 
+                    <input
+                        type="text"
+                        name="name"
+                        id="name"
+                        class="border broder-gray-400 p-2 w-full"
+                        required
                         value="{{ old('name') }}"
                     >
                     @error('name')
@@ -26,7 +26,7 @@
                     <label for="username" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         UserName
                     </label>
-                    <input 
+                    <input
                         type="text"
                         class="border broder-gray-400 p-2 w-full"
                         name="username"
@@ -38,15 +38,15 @@
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                     @enderror
                 </div>
-                
+
                 <div class="mb-6">
                     <label for="email" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Email
                     </label>
-                    <input type="email" 
-                        class="border broder-gray-400 p-2 w-full" 
-                        name="email" 
-                        id="email" 
+                    <input type="email"
+                        class="border broder-gray-400 p-2 w-full"
+                        name="email"
+                        id="email"
                         required
                         value="{{ old('email') }}"
                     >
@@ -58,11 +58,11 @@
                     <label for="password" class="block mb-2 uppercase font-bold text-xs text-gray-700">
                         Password
                     </label>
-                    <input 
-                        type="password" 
-                        class="border broder-gray-400 p-2 w-full" 
-                        name="password" 
-                        id="password" 
+                    <input
+                        type="password"
+                        class="border broder-gray-400 p-2 w-full"
+                        name="password"
+                        id="password"
                         required
                     >
                     @error('password')
@@ -83,7 +83,7 @@
                         @endforeach
                     </ul>
                 @endif
-            </form> 
+            </form>
         </main>
     </section>
 </x-layout>
