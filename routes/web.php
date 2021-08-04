@@ -84,7 +84,7 @@ use App\Http\Controllers\PostCommentsController;
 //     ]);
 // });
 
- auth()->loginUsingId(1);
+//  auth()->loginUsingId(1);
 
 
 Route::post('newsletter',NewsletterController::class);

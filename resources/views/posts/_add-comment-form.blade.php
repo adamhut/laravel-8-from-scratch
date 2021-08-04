@@ -15,7 +15,7 @@
             <span class="text-red-500 text-xs">{{ $message }}</span>
             @enderror
             <div class="flex justify-end border-t border-gray-200 pt-6 mt-8">
-                <x-submit-button>Post</x-submit-button>
+                <x-form.button>Post</x-form.button>
             </div>
         </div>
     </form>
