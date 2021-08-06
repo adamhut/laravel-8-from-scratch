@@ -11,9 +11,10 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\AuthorController;
 use Spatie\YamlFrontMatter\YamlFrontMatter;
 use App\Http\Controllers\CategoryController;
-use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\SessionsController;
+use App\Http\Controllers\AdminPostController;
+use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\PostCommentsController;
 
 /*
@@ -110,5 +111,19 @@ Route::post('login', [SessionsController::class, 'store'])->name('login.store')-
 Route::post('logout', [SessionsController::class,'destroy'])->name('logout')->middleware('auth');
 
 
-Route::get('admin/posts/create', [PostController::class, 'create'])->name('admin.post.create')->middleware('admin-only');
-Route::post('admin/posts',[PostController::class,'store'])->name('admin.post.store')->middleware('admin-only');
+
+
+Route::group(['middleware'=>['admin-only']],function(){
+    Route::get('admin/posts/create', [AdminPostController::class, 'create'])->name('admin.post.create');
+    Route::post('admin/posts', [AdminPostController::class, 'store'])->name('admin.post.store');
+    Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.post.create');
+    Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('admin.post.edit');
+    Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('admin.post.update');
+    Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('admin.post.destroy');
+});
+
+// Route::get('admin/posts', [AdminPostController::class, 'index'])->name('admin.post.create')->middleware('admin-only');
+// Route::get('admin/posts/{post}/edit', [AdminPostController::class, 'edit'])->name('admin.post.edit')->middleware('admin-only');
+// Route::patch('admin/posts/{post}', [AdminPostController::class, 'update'])->name('admin.post.update')->middleware('admin-only');
+// Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('admin.post.destroy')->middleware('admin-only');
+// Route::delete('admin/posts/{post}', [AdminPostController::class, 'destroy'])->name('admin.post.destroy')->middleware('can:admin');

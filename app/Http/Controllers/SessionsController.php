@@ -39,7 +39,8 @@ class SessionsController extends Controller
 
         // to prevent session fixation
         session()->regenerate();
-        return redirect('/')->flash('success', 'login successfully');
+
+        return redirect('/')->with('success', 'Welcome Back!');
 
     }
 

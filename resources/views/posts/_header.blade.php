@@ -5,7 +5,7 @@
 
     {{-- <h2 class="inline-flex mt-2">By Lary Laracore <img src="/images/lary-head.svg" alt="Head of Lary the mascot"></h2> --}}
 
-  
+
 
     <div class="space-y-2 lg:space-y-0 lg:space-x-4 mt-4">
         <!--  Category -->
@@ -43,9 +43,9 @@
                 @if(request()->has('category'))
                     <input type="hidden" name="category" value="{{ request('category') }}">
                 @endif
-                <input 
-                    type="text" 
-                    name="search" 
+                <input
+                    type="text"
+                    name="search"
                     placeholder="Find something"
                     class="bg-transparent placeholder-black font-semibold text-sm"
                     value="{{ request('search') }}"
@@ -53,4 +53,4 @@
             </form>
         </div>
     </div>
-</header>   
+</header>

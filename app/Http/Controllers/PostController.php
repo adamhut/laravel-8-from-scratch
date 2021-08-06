@@ -8,12 +8,19 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 class PostController extends Controller
 {
 
     public function index()
     {
+        // dd(Gate::allows('admin'));
+        // dd(auth()->user()->can('admin'));
+        // dd(auth()->user()->cannot('admin'));
+        // $this->authorize('admin');//perform full authorization
+
+
         return view('posts.index', [
             'posts' => Post::latest()->filter(
                 request(['search','category'])
@@ -35,37 +42,7 @@ class PostController extends Controller
     }
 
 
-    public function create()
-    {
-        $categories = Category::all();
-        // add a comment to the given post.
-        return view('posts.create',compact('categories'));
-    }
 
-
-    public function store()
-    {
-        $attributies = request()->validate([
-            'title'     => ['required'],
-            'thumbnail' => ['required','image'],
-            'excerpt'   => ['required'],
-            'body'      => ['required'],
-            'category_id' => ['required',Rule::exists('categories','id')],
-        ]);
-
-        $attributies['thumbnail'] = request()->hasFile('thumbnail') ? request()->file('thumbnail')->store('thumbnail') : null;
-
-        $attributies['user_id'] = auth()->user()->id;
-
-        $attributies['slug'] = Str::slug($attributies['title']).'-'.rand(1000,9999);
-
-        Post::create($attributies);
-
-
-        return redirect('/');
-
-
-    }
 
 
 }

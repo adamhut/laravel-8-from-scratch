@@ -1,7 +1,6 @@
 @props([
     'name',
     'type'=>'text'
-    ''
 ])
 
 <x-form.field>
@@ -13,8 +12,7 @@
         id="{{$name}}"
         class="border broder-gray-400 p-2 w-full rounded"
         required
-        value="{{ old($name) }}"
-        {{$attributes}}
+        {{$attributes(['value' => old($name)]) }}
     >
    <x-form.error name="{{$name}}"></x-form.error>
 </x-form.field>
